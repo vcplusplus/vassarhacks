@@ -1,0 +1,2 @@
+# vassarhacks
+Website for VassarHacks
