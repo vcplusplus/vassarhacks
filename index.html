@@ -1,46 +1,235 @@
----
-layout: default
----
+<!DOCTYPE html>
 
-{% include hero.html %}
-
-<section class="about">
-  <div class="container">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
-      {{ site.event.about.description | markdownify }}
-    </div>
-  </div>
-</section>
-
-<section class="info">
-  <div class="container">
-    <div class="items row">
-      {% for section in site.event.info.sections %}
-        <div class="col-xs-12 col-sm-4 text-center">
-          <div class="item">
-            <img src="{{ section.image }}" />
-            <h1>{{ section.title }}</h1>
-            <p>{{ section.description }}</p>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="faq">
-  <div class="container">
-    <h1 class="text-center">FAQ</h1>
-    <div class="row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        {% for item in site.event.faq %}
-        <div class="question col-xs-12 col-sm-12">
-          <h2>{{ item.question }}</h2>
-          <hr>
-          {{ item.answer | markdownify }}
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-</section>
+<html>
+	<head>
+		<title>VassarHacks - Hacking the Brain</title>
+		
+		<link rel="stylesheet" media="screen" href="style.css" />
+		<link href='https://fonts.googleapis.com/css?family=Saira Extra Condensed' rel='stylesheet'>
+		<link href='https://fonts.googleapis.com/css?family=Source Code Pro' rel='stylesheet'>
+		<link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+		
+		<script>
+			function scrollToId(id) {
+				document.querySelector("#"+id).scrollIntoView({behavior: "smooth"});
+			}
+			
+			function animateHeading(color1, color2, time) {
+				var scaling = 30/time;
+				var step=[document.getElementById("main_heading").offsetWidth*scaling,document.getElementById("main_heading").offsetHeight*scaling];
+				setTimeout(function() {
+					updateHeadingAnimation(color1, color2, [0,0], step, time/30);
+					}, 30);
+			}
+			
+			function updateHeadingAnimation(color1, color2, pos, step, countdown) {
+				document.getElementById("main_heading").style.background =
+					"radial-gradient(at "+pos[0]+"px "+pos[1]+"px, "+color1+", "+color2+")";
+					
+				if(countdown-1>0) setTimeout(function() {
+					updateHeadingAnimation(color1, color2, 
+											[pos[0]+step[0], pos[1]+step[1]], 
+											step, countdown-1)
+					}, 30);
+			}
+			
+			var navigationStuck=false;
+			function stickNavigation(time) {
+				var header = document.getElementById("header");
+				if(!navigationStuck) {
+					var headerTop=header.getBoundingClientRect().top;
+					if(headerTop<=0) {
+						header.style.position="fixed";
+						header.style.top="0";
+						header.style.left="0";
+						document.getElementById("header_filler").style.display="block";
+						animateNavigation(200);
+						navigationStuck=true;
+					}
+				}
+				else if (window.scrollY+header.offsetHeight<window.innerHeight){
+						header.style.position="static";
+						document.getElementById("header_filler").style.display="none";
+						navigationStuck=false;
+				}
+			}
+			
+			function animateNavigation(time) {
+				anStep=0.5*30/time;
+				setTimeout(function() {
+					updateNavigationAnimation(0, anStep, time/30);
+					}, 30);
+			}
+			
+			function updateNavigationAnimation(height, step, count) {
+				if(count>0) {
+					console.log("0 "+(height+step)+"vh "+((height+step)*3/5)+"vh #007569");
+					document.getElementById("header").style.boxShadow="0 "+(height+step)+"vh "+((height+step)*3/5)+"vh #007569";
+					setTimeout(function() {
+						updateNavigationAnimation(height+step, step, count-1);
+						}, 30);
+				}	
+			}
+			
+			var animated_pics=false;
+			function animateProfilePics(time) {
+				if(!animated_pics) {
+					var picsTop=document.getElementsByClassName("profile_pic")[0].getBoundingClientRect().top;
+					if(picsTop<=window.innerHeight) {
+						step=25*30/time;
+						setTimeout(function() {
+							updateProfilePicsAnimation(25, step, time/30);
+							}, 200);
+						animated_pics=true;
+					}
+				}
+			}
+			
+			function updateProfilePicsAnimation(bradius, step, count) {
+				if(count>0) {
+					pics = document.getElementsByClassName("profile_pic");
+					for(var i=0; i<pics.length; i++) {
+						pics[i].style.borderRadius=(bradius+step)+"%";
+					}
+					setTimeout(function() {
+						updateProfilePicsAnimation(bradius+step, step, count-1);
+						}, 30);
+				}
+			}
+			
+			var last_focused="george";
+			function focus_profile_pic(name) {
+				document.getElementById(last_focused+"_quote").style.display="none";
+				document.getElementById("profile_pic_container_focused").removeAttribute("id");
+				document.getElementById(name+"_quote").style.display="inline";
+				document.getElementById(name+"_profile_pic").parentElement.setAttribute("id", "profile_pic_container_focused");
+				last_focused=name;
+			}
+		</script>
+	</head>
+	<body onload="setTimeout(function() {animateHeading('rgba(200,200,200,0.8)', 'rgba(180,176,176,0.4)', 500);}, 1000);" onscroll="stickNavigation(); animateProfilePics(500);">
+	<div id="background_NOt">
+		<div id="main_heading">
+			<img src="images/VassarHacks_Logo.png" />
+			<p>Hacking the Brain</p>
+			<p id="date">April 27, 2018 - April 29, 2018</p>
+		</div>
+		<div id="header">
+			<h1>VassarHacks - Hacking the Brain</h1>
+			<a target="_blank" href="https://www.instagram.com/vassarhacks/">
+				<img style="height:3vh; margin-top: 1vh; margin-left: 1.5vh; float:right;" src="images/instagram_logo.png" />
+			</a>
+			<a target="_blank" href="https://twitter.com/vassarhacks">
+				<img style="height:3vh; margin-top: 1vh; margin-left: 1.5vh; float:right;" src="images/twitter_logo.png" />
+			</a>
+			<a target="_blank" href="https://www.facebook.com/VassarHacks-1644604538962429/">
+				<img style="height:3vh; margin-top: 1vh; margin-left: 1.5vh; float:right;" src="images/facebook_logo.png" />
+			</a>
+			<div id="navigation">
+				<a href="#top">Home</a>
+				<a onclick="scrollToId('about')">About</a>
+				<a onclick="scrollToId('register')">Register</a>
+				<a onclick="scrollToId('sponsors')">Sponsors</a>
+			</div>
+		</div>
+		<div id="header_filler"></div>
+		<div id="content">
+		<div class="content" id="about">
+			<h2>ABOUT</h2>
+			<hr />
+			<h3>What is a hackathon?</h3>
+			<p>A hackathon is a 24-hour, intesive compeition in which 
+			small teams of students work together to create an innovative 
+			solution to a modern problem. At the end of the 24 hours, 
+			each team presents their creation to a pannel judges who 
+			determine the winner.</p>
+			<hr />
+			<h3>What kind of problems will we be solving?</h3>
+			<p>This year, our theme is hacking the brain. Under that theme, 
+			contestants can choose from three tracks: 
+			education, mental health, and artificial intelligence. Teams 
+			who choose education will work on developing tools for education. 
+			Teams who choose mental health will work on developing tools to 
+			promote mental health or to aid mental health professionals. 
+			Finally, teams who choose artifial intelligence will work on 
+			creating or improving tools that are powered by artificial intellengence.</p>
+			<hr />
+			<h3>What kind of things will we be making?</h3>
+			<p>Usually hackathon teams design something involving 
+			software or hardware, but anything goes!</p>
+			<hr />
+			<h3>But I don't know anything about [fill in blank]!</h3>
+			<p>One of the best things about a hackathon is that it brings
+			together people with diverse skill sets. You don't have to 
+			know anything about mental health, education, or computer 
+			science. You just have to be able to work with someone who does!
+			It's a great opportunity to step outside your comfort zone 
+			and learn new things.</p>
+			<hr />
+			<h3>What if I don't want to compete?</h3>
+			<p>Even if you're not competing, you're still welcome to come.
+			We may be hosting workshops and talks throughout the day. 
+			Stay tuned for updates!</p>
+			<hr />
+			<h3>Do I have to pay?</h3>
+			<p>Absolutely not. Hackathons are free! If we get enough 
+			sponsorship, we may also be able to reinburse travel expenses.
+			Check back for more information!</p>
+			<hr />
+			<h3>Where and when is the hackathon taking place?</h3>
+			<p>The hackathon will take place over the weekend, April 27, 
+			2018 - April 29, 2018. A more detailed schedule is coming soon.
+			It will take place at <a target="_blank" href="https://www.google.com/maps/dir//Vassar+College,+124+Raymond+Ave,+Poughkeepsie,+NY+12604/@41.6859741,-73.8955547,17.5z/data=!4m8!4m7!1m0!1m5!1m1!1s0x89dd3e5682674b4d:0xe3c87d640882d54c!2m2!1d-73.8957002!2d41.6867992">
+			Vassar College</a> in Poughkeepsie, NY.</p>
+			<hr />
+			<h3>Meet the team!</h3>
+			<div class="profile_pic_container" id="profile_pic_container_focused">
+				<img class="profile_pic"  id="george_profile_pic"
+					onclick="focus_profile_pic('george');" src="images/george-witteman.jpg" />
+				<p>George Witteman <br /> <span class="job_descr">(Co-chair)</span></p>
+			</div>
+			<div class="profile_pic_container">
+				<img class="profile_pic"  id="joshua_profile_pic" 
+					onclick="focus_profile_pic('joshua');" src="images/joshua-swaim.jpg" />
+				<p>Joshua Swaim <br /> <span class="job_descr">(Head of Marketing)</span></p>
+			</div>
+			<div class="profile_pic_container">
+				<p>More profiles coming soon!</p>
+			</div>
+			<div id="profile_quote_container">
+				<img id="start_quote_mark" src="images/begin_quote.png" />
+				<div id="profile_quote_text">
+					<p id="george_quote" style="display: inline;">
+					I’m a senior computer science major and I’m super 
+					excited to be organizing VassarHacks! I’ve always loved 
+					building things and being creative, and I’m thrilled to 
+					get to be a part of such a energetic and supportive team 
+					putting VassarHacks together. It’s a truly inspiring 
+					experience getting the opportunity to work on VassarHacks. 
+					I hope everyone has a fantastic time and I can’t wait to 
+					see how it turns out!</p>
+					<p id="joshua_quote">
+					Hello! My name is Joshua. I’m in charge of publicity 
+					for VassarHacks. Right now, I’m studying Physics and 
+					Mathematics at Vassar College, but Computer Science 
+					has always been a passion of mine. I’m excited to see 
+					how VassarHacks will connect people from across 
+					academic disciplines!</p>
+				</div>
+				<img id="end_quote_mark" src="images/end_quote.png" />
+			</div>
+		</div>
+		<div class="content" id="register">
+			<h2>REGISTER</h2>
+			<hr />
+			<p style="font-size: 2em; font-weight: bold;">Registration coming soon!</p>
+		</div>
+		<div class="content" id="sponsors">
+			<h2>SPONSORS</h2>
+			<hr />
+			<button onclick="location.href='mailto:vassarhacks@gmail.com';">Sponsor Us!</button>
+		</div>
+		</div>
+	</div>
+	</body>
+</html>
