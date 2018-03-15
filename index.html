@@ -3,17 +3,17 @@
 <html>
 	<head>
 		<title>VassarHacks - Hacking the Brain</title>
-		
+
 		<link rel="stylesheet" media="screen" href="style.css" />
 		<link href='https://fonts.googleapis.com/css?family=Saira Extra Condensed' rel='stylesheet'>
 		<link href='https://fonts.googleapis.com/css?family=Source Code Pro' rel='stylesheet'>
 		<link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
-		
+
 		<script>
 			function scrollToId(id) {
 				document.querySelector("#"+id).scrollIntoView({behavior: "smooth"});
 			}
-			
+
 			function animateHeading(color1, color2, time) {
 				var scaling = 30/time;
 				var step=[document.getElementById("main_heading").offsetWidth*scaling,document.getElementById("main_heading").offsetHeight*scaling];
@@ -21,18 +21,18 @@
 					updateHeadingAnimation(color1, color2, [0,0], step, time/30);
 					}, 30);
 			}
-			
+
 			function updateHeadingAnimation(color1, color2, pos, step, countdown) {
 				document.getElementById("main_heading").style.background =
 					"radial-gradient(at "+pos[0]+"px "+pos[1]+"px, "+color1+", "+color2+")";
-					
+
 				if(countdown-1>0) setTimeout(function() {
-					updateHeadingAnimation(color1, color2, 
-											[pos[0]+step[0], pos[1]+step[1]], 
+					updateHeadingAnimation(color1, color2,
+											[pos[0]+step[0], pos[1]+step[1]],
 											step, countdown-1)
 					}, 30);
 			}
-			
+
 			var navigationStuck=false;
 			function stickNavigation(time) {
 				var header = document.getElementById("header");
@@ -53,14 +53,14 @@
 						navigationStuck=false;
 				}
 			}
-			
+
 			function animateNavigation(time) {
 				anStep=0.5*30/time;
 				setTimeout(function() {
 					updateNavigationAnimation(0, anStep, time/30);
 					}, 30);
 			}
-			
+
 			function updateNavigationAnimation(height, step, count) {
 				if(count>0) {
 					console.log("0 "+(height+step)+"vh "+((height+step)*3/5)+"vh #007569");
@@ -68,9 +68,9 @@
 					setTimeout(function() {
 						updateNavigationAnimation(height+step, step, count-1);
 						}, 30);
-				}	
+				}
 			}
-			
+
 			var animated_pics=false;
 			function animateProfilePics(time) {
 				if(!animated_pics) {
@@ -84,7 +84,7 @@
 					}
 				}
 			}
-			
+
 			function updateProfilePicsAnimation(bradius, step, count) {
 				if(count>0) {
 					pics = document.getElementsByClassName("profile_pic");
@@ -96,7 +96,7 @@
 						}, 30);
 				}
 			}
-			
+
 			var last_focused="george";
 			function focus_profile_pic(name) {
 				document.getElementById(last_focused+"_quote").style.display="none";
@@ -110,7 +110,7 @@
 	<body onload="setTimeout(function() {animateHeading('rgba(200,200,200,0.8)', 'rgba(180,176,176,0.4)', 500);}, 1000);" onscroll="stickNavigation(); animateProfilePics(500);">
 	<div id="background_NOt">
 		<div id="main_heading">
-			<img src="images/VassarHacks_Logo.png" />
+			<img src="images/VassarHacks_Logo.svg" />
 			<p>Hacking the Brain</p>
 			<p id="date">April 27, 2018 - April 29, 2018</p>
 		</div>
@@ -138,46 +138,46 @@
 			<h2>ABOUT</h2>
 			<hr />
 			<h3>What is a hackathon?</h3>
-			<p>A hackathon is a 24-hour, intesive compeition in which 
-			small teams of students work together to create an innovative 
-			solution to a modern problem. At the end of the 24 hours, 
-			each team presents their creation to a pannel judges who 
+			<p>A hackathon is a 24-hour, intesive compeition in which
+			small teams of students work together to create an innovative
+			solution to a modern problem. At the end of the 24 hours,
+			each team presents their creation to a pannel judges who
 			determine the winner.</p>
 			<hr />
 			<h3>What kind of problems will we be solving?</h3>
-			<p>This year, our theme is hacking the brain. Under that theme, 
-			contestants can choose from three tracks: 
-			education, mental health, and artificial intelligence. Teams 
-			who choose education will work on developing tools for education. 
-			Teams who choose mental health will work on developing tools to 
-			promote mental health or to aid mental health professionals. 
-			Finally, teams who choose artifial intelligence will work on 
+			<p>This year, our theme is hacking the brain. Under that theme,
+			contestants can choose from three tracks:
+			education, mental health, and artificial intelligence. Teams
+			who choose education will work on developing tools for education.
+			Teams who choose mental health will work on developing tools to
+			promote mental health or to aid mental health professionals.
+			Finally, teams who choose artifial intelligence will work on
 			creating or improving tools that are powered by artificial intellengence.</p>
 			<hr />
 			<h3>What kind of things will we be making?</h3>
-			<p>Usually hackathon teams design something involving 
+			<p>Usually hackathon teams design something involving
 			software or hardware, but anything goes!</p>
 			<hr />
 			<h3>But I don't know anything about [fill in blank]!</h3>
 			<p>One of the best things about a hackathon is that it brings
-			together people with diverse skill sets. You don't have to 
-			know anything about mental health, education, or computer 
+			together people with diverse skill sets. You don't have to
+			know anything about mental health, education, or computer
 			science. You just have to be able to work with someone who does!
-			It's a great opportunity to step outside your comfort zone 
+			It's a great opportunity to step outside your comfort zone
 			and learn new things.</p>
 			<hr />
 			<h3>What if I don't want to compete?</h3>
 			<p>Even if you're not competing, you're still welcome to come.
-			We may be hosting workshops and talks throughout the day. 
+			We may be hosting workshops and talks throughout the day.
 			Stay tuned for updates!</p>
 			<hr />
 			<h3>Do I have to pay?</h3>
-			<p>Absolutely not. Hackathons are free! If we get enough 
+			<p>Absolutely not. Hackathons are free! If we get enough
 			sponsorship, we may also be able to reinburse travel expenses.
 			Check back for more information!</p>
 			<hr />
 			<h3>Where and when is the hackathon taking place?</h3>
-			<p>The hackathon will take place over the weekend, April 27, 
+			<p>The hackathon will take place over the weekend, April 27,
 			2018 - April 29, 2018. A more detailed schedule is coming soon.
 			It will take place at <a target="_blank" href="https://www.google.com/maps/dir//Vassar+College,+124+Raymond+Ave,+Poughkeepsie,+NY+12604/@41.6859741,-73.8955547,17.5z/data=!4m8!4m7!1m0!1m5!1m1!1s0x89dd3e5682674b4d:0xe3c87d640882d54c!2m2!1d-73.8957002!2d41.6867992">
 			Vassar College</a> in Poughkeepsie, NY.</p>
@@ -189,7 +189,7 @@
 				<p>George Witteman <br /> <span class="job_descr">(Co-chair)</span></p>
 			</div>
 			<div class="profile_pic_container">
-				<img class="profile_pic"  id="joshua_profile_pic" 
+				<img class="profile_pic"  id="joshua_profile_pic"
 					onclick="focus_profile_pic('joshua');" src="images/joshua-swaim.jpg" />
 				<p>Joshua Swaim <br /> <span class="job_descr">(Head of Marketing)</span></p>
 			</div>
@@ -200,20 +200,20 @@
 				<img id="start_quote_mark" src="images/begin_quote.png" />
 				<div id="profile_quote_text">
 					<p id="george_quote" style="display: inline;">
-					I’m a senior computer science major and I’m super 
-					excited to be organizing VassarHacks! I’ve always loved 
-					building things and being creative, and I’m thrilled to 
-					get to be a part of such a energetic and supportive team 
-					putting VassarHacks together. It’s a truly inspiring 
-					experience getting the opportunity to work on VassarHacks. 
-					I hope everyone has a fantastic time and I can’t wait to 
+					I’m a senior computer science major and I’m super
+					excited to be organizing VassarHacks! I’ve always loved
+					building things and being creative, and I’m thrilled to
+					get to be a part of such a energetic and supportive team
+					putting VassarHacks together. It’s a truly inspiring
+					experience getting the opportunity to work on VassarHacks.
+					I hope everyone has a fantastic time and I can’t wait to
 					see how it turns out!</p>
 					<p id="joshua_quote">
-					Hello! My name is Joshua. I’m in charge of publicity 
-					for VassarHacks. Right now, I’m studying Physics and 
-					Mathematics at Vassar College, but Computer Science 
-					has always been a passion of mine. I’m excited to see 
-					how VassarHacks will connect people from across 
+					Hello! My name is Joshua. I’m in charge of publicity
+					for VassarHacks. Right now, I’m studying Physics and
+					Mathematics at Vassar College, but Computer Science
+					has always been a passion of mine. I’m excited to see
+					how VassarHacks will connect people from across
 					academic disciplines!</p>
 				</div>
 				<img id="end_quote_mark" src="images/end_quote.png" />
