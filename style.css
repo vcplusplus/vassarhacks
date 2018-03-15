@@ -1,0 +1,64 @@
+html {height: 100%}
+body {margin: 0; height: 100%; font-family: Saira Extra Condensed; 
+			background-color: #000f16;
+			background: url(images/network.jpg) repeat center center fixed;
+			-webkit-background-size: cover; -moz-background-size: cover;
+			-o-background-size: cover; background-size: cover;}
+
+#background {height: 100%; width:100%; margin: 0;
+			background: url(images/brain_logo_large.png) no-repeat center center fixed;
+			-webkit-background-size: contain; -moz-background-size: contain;
+			-o-background-size: contain; background-size: contain;}
+
+#header {width: 90%; height: 5vh; padding-bottom: 2vh; margin: 0;
+			padding-left: 5%; padding-right: 5%; padding-top: 2vh;
+			background-color: #ECECEC;}
+
+#header h1 {font-size: 3vh; display: inline;}
+
+#header #navigation {margin-right: 10%; float: right;}
+
+#header #navigation a {text-decoration: none; color: black; font-size: 3vh; 
+						cursor: pointer; margin-left: 50px}
+
+#header_filler {height: 9vh; display: none;}
+
+#main_heading {margin-left: 20%; margin-top: 25vh; margin-bottom: 33vh; height: 25vh; overflow: hidden;
+				padding-top: 4vh; padding-bottom: 4vh; padding-left: 2%; text-align: center;
+				padding-right: 2%; width: 56%; background-color: rgba(180,176,176,0.4); 
+				background: radial-gradient(at 0 0, rgba(200,200,200,0.8), rgba(180,176,176,0.4));}
+/*#main_heading {margin-left: 20%; margin-top: 0; margin-bottom: 91vh; height: 0; overflow: hidden;
+				padding-top: 0; padding-bottom: 0; padding-left: 2%; text-align: center;
+				padding-right: 2%; width: 56%; background-color: rgba(180,176,176,0.4); 
+				background: radial-gradient(at 0 0, rgba(200,200,200,0.8), rgba(180,176,176,0.4));}	*/			
+#main_heading img {height: 50%;}
+#main_heading p {font-size: 5vh; margin: 0;}
+#main_heading #date {font-size: 3vh;}
+
+#content {background: linear-gradient(to bottom right, #CFBCC9bb, #ffffffbb);}
+.content {margin-left: 0; margin-right: 0;
+			padding-left: 10%; padding-right: 10%; padding-top: 3em;
+			padding-bottom: 3em; margin-bottom: 0;}
+.content hr {margin-top: 30px;}
+.content h2 {font-family: Quicksand; font-size: 4em; color: #E40011;}
+.content h3 {font-size: 2em; margin-bottom: 20px;}
+.content p {font-family: Quicksand; font-size: 1.2em; margin: 10px;}
+.content form input {margin-top: 1em;}
+.content button {width: 300px; height: 75px; border: 5px solid #000F17;
+					border-radius: 30px; background-color: #CFBCC9bb;
+					font-size: 2em; font-weight: bold; cursor: pointer;}
+
+#about .profile_pic_container {width:17%; margin: 2%; display: inline-block; text-align: center;}
+#about #profile_pic_container_focused {width:20%; margin: 2%; display: inline-block; text-align: center;}
+#about .profile_pic_container p {font-size: 1.5vw; margin: 0; margin-top: 10px; font-weight: bold;}
+#about .profile_pic_container .job_descr {font-size: 1.25vw; font-weight: normal;}
+#about .profile_pic {width: 100%; cursor: pointer; border-radius: 25%;}
+
+#about #profile_quote_container {margin-left: 7vw; margin-top: 30px;}
+#about #profile_quote_container p {display: inline-block;}
+#about #profile_quote_text {width: 60%; display: inline-block; margin-left: 5px;}
+#about #profile_quote_text p {display: none; margin: 0;}
+#about #profile_quote_container #start_quote_mark {height: 2em; vertical-align: top; margin-top: 0;}
+#about #profile_quote_container #end_quote_mark {height: 2em; vertical-align: bottom; margin-bottom: 0;}
+
+#sponsors img {width: 15%; margin: 1%;}
