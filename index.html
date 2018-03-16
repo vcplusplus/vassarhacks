@@ -33,41 +33,19 @@
           }, 30);
       }
 
-      var navigationStuck=false;
-      function stickNavigation(time) {
-        var header = document.getElementById("header");
+      let navigationStuck=false;
+      function stickNavigation() {
+        const header = document.getElementById("header");
         if(!navigationStuck) {
-          var headerTop=header.getBoundingClientRect().top;
-          if(headerTop<=0) {
-            header.style.position="fixed";
-            header.style.top="0";
-            header.style.left="0";
-            document.getElementById("header_filler").style.display="block";
-            animateNavigation(200);
+          const headerTop=header.getBoundingClientRect().top;
+          if(headerTop <= 0) {
+            header.classList.add('fixed');
             navigationStuck=true;
           }
         }
-        else if (window.scrollY+header.offsetHeight<window.innerHeight){
-            header.style.position="static";
-            document.getElementById("header_filler").style.display="none";
-            navigationStuck=false;
-        }
-      }
-
-      function animateNavigation(time) {
-        anStep=0.5*30/time;
-        setTimeout(function() {
-          updateNavigationAnimation(0, anStep, time/30);
-          }, 30);
-      }
-
-      function updateNavigationAnimation(height, step, count) {
-        if(count>0) {
-          console.log("0 "+(height+step)+"vh "+((height+step)*3/5)+"vh #007569");
-          document.getElementById("header").style.boxShadow="0 "+(height+step)+"vh "+((height+step)*3/5)+"vh #007569";
-          setTimeout(function() {
-            updateNavigationAnimation(height+step, step, count-1);
-            }, 30);
+        else if (window.scrollY + header.offsetHeight < window.innerHeight){
+          header.classList.remove('fixed');
+          navigationStuck=false;
         }
       }
 
@@ -108,10 +86,12 @@
     </script>
   </head>
   <body onload="setTimeout(function() {animateHeading('rgba(200,200,200,0.8)', 'rgba(180,176,176,0.4)', 500);}, 1000);" onscroll="stickNavigation(); animateProfilePics(500);">
-    <div id="hero">
-      <img src="images/VassarHacks_Logo.svg" />
-      <p>Hacking the Brain</p>
-      <p id="date">April 27, 2018 - April 29, 2018</p>
+    <div class="hero-container">
+      <div id="hero">
+        <img src="images/VassarHacks_Logo.svg" />
+        <p>Hacking the Brain</p>
+        <p id="date">April 27, 2018 - April 29, 2018</p>
+      </div>
     </div>
     <div id="header">
       <h1>VassarHacks - Hacking the Brain</h1>
@@ -131,7 +111,6 @@
         <a onclick="scrollToId('sponsors')">Sponsors</a>
       </div>
     </div>
-    <div id="header_filler"></div>
     <div id="content">
     <div class="content" id="about">
       <h2>ABOUT</h2>
