@@ -11,7 +11,7 @@
 
     <script>
       function scrollToId(id) {
-        document.querySelector("#"+id).scrollIntoView({behavior: "smooth"});
+        document.querySelector("#"+id).scrollIntoView(true);
       }
 
       function animateHeading(color1, color2, time) {
@@ -35,7 +35,7 @@
 
       let navigationStuck=false;
       function stickNavigation() {
-        const header = document.getElementById("header");
+        const header = document.querySelector(".header");
         if(!navigationStuck) {
           const headerTop=header.getBoundingClientRect().top;
           if(headerTop <= 0) {
@@ -85,7 +85,7 @@
       }
     </script>
   </head>
-  <body onload="setTimeout(function() {animateHeading('rgba(200,200,200,0.8)', 'rgba(180,176,176,0.4)', 500);}, 1000);" onscroll="stickNavigation(); animateProfilePics(500);">
+  <body id="top" onload="setTimeout(function() {animateHeading('rgba(200,200,200,0.8)', 'rgba(180,176,176,0.4)', 500);}, 1000);" onscroll="stickNavigation(); animateProfilePics(500);">
     <div class="hero-container">
       <div id="hero">
         <img src="images/VassarHacks_Logo.svg" />
@@ -93,24 +93,28 @@
         <p id="date">April 27, 2018 - April 29, 2018</p>
       </div>
     </div>
-    <div id="header">
-      <h1>VassarHacks - Hacking the Brain</h1>
-      <a target="_blank" href="https://www.instagram.com/vassarhacks/">
-        <img class="social-nav-item" src="images/instagram_logo.png" />
-      </a>
-      <a target="_blank" href="https://twitter.com/vassarhacks">
-        <img class="social-nav-item" src="images/twitter_logo.png" />
-      </a>
-      <a target="_blank" href="https://www.facebook.com/VassarHacks-1644604538962429/">
-        <img class="social-nav-item" src="images/facebook_logo.png" />
-      </a>
-      <div id="navigation">
-        <a href="#top">Home</a>
-        <a onclick="scrollToId('about')">About</a>
-        <a onclick="scrollToId('register')">Register</a>
-        <a onclick="scrollToId('sponsors')">Sponsors</a>
+    <header class="header">
+      <div class="header-inner">
+        <h1 class="header-left">VassarHacks
+          <span class="header-left-subtitle"> - Hacking the Brain</span>
+        </h1>
+        <div class="header-right main-nav">
+          <a class="main-nav-link" onclick="scrollToId('top')">Home</a>
+          <a class="main-nav-link" onclick="scrollToId('about')">About</a>
+          <a class="main-nav-link" onclick="scrollToId('register')">Register</a>
+          <a class="main-nav-link" onclick="scrollToId('sponsors')">Sponsors</a>
+          <a target="_blank" class="main-nav-link social-nav-item" href="https://www.instagram.com/vassarhacks/">
+            <img src="images/instagram_logo.png" />
+          </a>
+          <a target="_blank" class="main-nav-link social-nav-item" href="https://twitter.com/vassarhacks">
+            <img src="images/twitter_logo.png" />
+          </a>
+          <a target="_blank" class="main-nav-link social-nav-item" href="https://www.facebook.com/VassarHacks-1644604538962429/">
+            <img src="images/facebook_logo.png" />
+          </a>
+        </div>
       </div>
-    </div>
+    </header>
     <div id="content">
     <div class="content" id="about">
       <h2>ABOUT</h2>
