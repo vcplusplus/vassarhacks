@@ -250,6 +250,12 @@ body {
   color: #e40011;
 }
 
+@media (max-width: 45rem) {
+  .content h2 {
+    font-size: 2.5em;
+  }
+}
+
 .content h3 {
   font-size: 2em;
   margin-bottom: 20px;
