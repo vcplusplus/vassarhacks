@@ -17,25 +17,31 @@ body {
 }
 
 /** Hero **/
-.hero-container {
-  padding-top: 28vh;
+.header-container {
   box-sizing: border-box;
-  height: 100vh;
+  min-height: 100vh;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
 }
 
 #hero {
+  display: block;
   font-size: 1rem;
   box-sizing: border-box;
-
-  /* Center the element in it's container */
-  margin-left: auto;
-  margin-right: auto;
-
+  margin: auto;
   text-align: center;
   max-width: 38rem;
   width: 56%;
-  padding: 4vh 2%;
-  overflow: hidden;
+  padding: 4vh 0;
 
   background-color: rgba(180, 176, 176, 0.4);
   background: radial-gradient(
@@ -78,12 +84,9 @@ body {
   width: 100%;
   margin: 0;
   background-color: #ececec;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   transition: box-shadow 300ms ease;
   height: 5rem;
+  position: relative;
 }
 
 .header.fixed {
