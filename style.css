@@ -14,17 +14,6 @@ body {
   background-size: cover;
 }
 
-#background {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  background: url(images/brain_logo_large.png) no-repeat center center fixed;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
-}
-
 /** Hero **/
 #hero {
   margin-left: 20%;
