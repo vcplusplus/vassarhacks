@@ -100,7 +100,11 @@
 
 <body id="top" onload="setTimeout(function() {animateHeading('rgba(200,200,200,0.8)', 'rgba(180,176,176,0.4)', 500);}, 1000);"
   onscroll="stickNavigation(); animateProfilePics(500);">
+
+  <!-- Main container for the entire header that defines the full height -->
   <div class="header-container">
+
+    <!-- Hero container (1st element in .header-container flex)-->
     <div class="hero-container">
       <div id="hero">
         <img src="images/VassarHacks_Logo.svg" />
@@ -108,9 +112,12 @@
         <p id="date">April 27, 2018 - April 29, 2018</p>
       </div>
     </div>
+
+    <!-- The `header` navigation bar (2nd element in .header-container flex) -->
     <header class="header">
       <div class="header-inner">
-        <h1 class="header-left">VassarHacks
+        <h1 class="header-left">
+          VassarHacks
           <span class="header-left-subtitle"> - Hacking the Brain</span>
         </h1>
         <div class="header-right main-nav">
@@ -135,7 +142,9 @@
         <i class="hamburger__line"></i>
       </div>
     </header>
+
   </div>
+
   <div id="content">
     <div class="content" id="about">
       <h2>ABOUT</h2>
