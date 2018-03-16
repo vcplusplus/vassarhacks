@@ -156,6 +156,74 @@ body {
   height: 100%;
 }
 
+/** Hamburger icon **/
+.hamburger {
+  cursor: pointer;
+  width: 1.875rem;
+  height: 1.5625rem;
+  margin: 0;
+}
+
+.hamburger__line {
+  background-color: #000;
+  border-radius: 2px;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0.25rem;
+}
+
+.hamburger__line:nth-child(2) {
+  margin: 0.3125rem 0;
+}
+
+/** Mobile nav **/
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 34rem) {
+  .hamburger {
+    position: absolute;
+    top: 1.71875rem;
+    right: 1rem;
+    display: block;
+  }
+
+  .hamburger--active {
+    position: fixed;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .main-nav--visible {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    text-align: center;
+  }
+
+  .main-nav--visible .main-nav-link {
+    margin: 0;
+    padding: 0;
+    font-size: 4em;
+  }
+
+  .main-nav--visible .social-nav-item {
+    display: none;
+  }
+
+}
+
+
 /** Content **/
 
 #content {
