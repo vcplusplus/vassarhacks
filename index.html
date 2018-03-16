@@ -16,14 +16,14 @@
 
       function animateHeading(color1, color2, time) {
         var scaling = 30/time;
-        var step=[document.getElementById("main_heading").offsetWidth*scaling,document.getElementById("main_heading").offsetHeight*scaling];
+        var step=[document.getElementById("hero").offsetWidth*scaling,document.getElementById("hero").offsetHeight*scaling];
         setTimeout(function() {
           updateHeadingAnimation(color1, color2, [0,0], step, time/30);
           }, 30);
       }
 
       function updateHeadingAnimation(color1, color2, pos, step, countdown) {
-        document.getElementById("main_heading").style.background =
+        document.getElementById("hero").style.background =
           "radial-gradient(at "+pos[0]+"px "+pos[1]+"px, "+color1+", "+color2+")";
 
         if(countdown-1>0) setTimeout(function() {
@@ -109,7 +109,7 @@
   </head>
   <body onload="setTimeout(function() {animateHeading('rgba(200,200,200,0.8)', 'rgba(180,176,176,0.4)', 500);}, 1000);" onscroll="stickNavigation(); animateProfilePics(500);">
   <div id="background_NOt">
-    <div id="main_heading">
+    <div id="hero">
       <img src="images/VassarHacks_Logo.svg" />
       <p>Hacking the Brain</p>
       <p id="date">April 27, 2018 - April 29, 2018</p>
