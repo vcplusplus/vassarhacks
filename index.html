@@ -10,6 +10,7 @@
   <link href='https://fonts.googleapis.com/css?family=Saira Extra Condensed' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Source Code Pro' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
   <script>
     function scrollToId(id) {
       document.querySelector("#" + id).scrollIntoView(true);
@@ -17,11 +18,11 @@
     }
 
     function animateHeading(color1, color2, time) {
-      var scaling = 30 / time;
-      var step = [document.getElementById("hero").offsetWidth * scaling, document.getElementById("hero").offsetHeight * scaling];
-      setTimeout(function() {
-        updateHeadingAnimation(color1, color2, [0, 0], step, time / 30);
-      }, 30);
+      // var scaling = 30 / time;
+      // var step = [document.getElementById("hero").offsetWidth * scaling, document.getElementById("hero").offsetHeight * scaling];
+      // setTimeout(function() {
+      //   updateHeadingAnimation(color1, color2, [0, 0], step, time / 30);
+      // }, 30);
     }
 
     function updateHeadingAnimation(color1, color2, pos, step, countdown) {
@@ -106,8 +107,17 @@
 
     <!-- Hero container (1st element in .header-container flex)-->
     <div class="hero-container">
+      <!-- <div class="bolt one">
+        <div class="other"></div>
+      </div>
+      <div class="bolt two">
+        <div class="other"></div>
+      </div>
+      <div class="bolt three">
+        <div class="other"></div>
+      </div> -->
       <div id="hero">
-        <img src="images/VassarHacks_Logo.svg" />
+        <img src="images/vassarhacks1.svg" />
         <p>Hacking the Brain</p>
         <p id="date">April 27, 2018 - April 29, 2018</p>
       </div>

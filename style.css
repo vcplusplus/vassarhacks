@@ -7,9 +7,10 @@ body {
   font-size: 1rem;
   margin: 0;
   height: 100%;
-  font-family: 'Saira Extra Condensed';
-  background-color: #000f16;
-  background: url('images/network.jpg') repeat center center fixed;
+  font-family: 'Inconsolata';
+  background-color: #fff;
+  /* F7EC6D */
+  /* background: url('images/network.jpg') repeat center center fixed; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -45,12 +46,12 @@ body {
   width: 56%;
   padding: 2rem 1rem;
 
-  background-color: rgba(180, 176, 176, 0.4);
+  /* background-color: rgba(180, 176, 176, 0.4);
   background: radial-gradient(
     at 0 0,
     rgba(200, 200, 200, 0.8),
     rgba(180, 176, 176, 0.4)
-  );
+  ); */
 }
 
 @media (max-width: 46rem) {
@@ -74,6 +75,81 @@ body {
 
 #hero #date {
   font-size: 1.7em;
+}
+
+/**lightning bolts**/
+
+/* .bolt {
+  width: 0px;
+  height: 0px;
+  border: 15px solid transparent;
+  border-bottom: 55px solid #323335;
+  position: absolute;
+  margin-top: -270px;
+  margin-left: 47%;
+}
+
+.one {
+  margin-left: 37%;
+  transform: rotateZ(-25deg) translateY(7px);
+  animation: white 0.3s linear infinite;
+}
+
+.one .other {
+  animation: whitet 0.3s linear infinite;
+}
+
+.two {
+  border-bottom: 55px solid #FEFEFE;
+  transform: translateY(-7px);
+  animation: gray 0.3s linear infinite;
+}
+
+.two .other {
+  border-top: 55px solid #FEFEFE;
+  animation: grayt 0.3s linear infinite;
+}
+
+.three {
+  margin-left: 57%;
+  transform: rotateZ(25deg) translateY(0px);
+  animation: white 0.3s linear infinite;
+}
+
+.three .other {
+  animation: whitet 0.3s linear infinite;
+}
+
+.other {
+  width: 0px;
+  height: 0px;
+  border: 11px solid transparent;
+  border-top: 55px solid #323335;
+  margin-top: 40px;
+} */
+
+@keyframes white {
+  to {
+    border-bottom-color: #FEFEFE;
+  }
+}
+
+@keyframes whitet {
+  to {
+    border-top-color: #FEFEFE;
+  }
+}
+
+@keyframes gray {
+  to {
+    border-bottom-color: #323335;
+  }
+}
+
+@keyframes grayt {
+  to {
+    border-top-color: #323335;
+  }
 }
 
 /** Header **/
@@ -246,7 +322,7 @@ body {
 }
 
 .content h2 {
-  font-family: Quicksand;
+  font-family: "Inconsolata";
   font-size: 4em;
   color: #e40011;
 }
@@ -263,7 +339,7 @@ body {
 }
 
 .content p {
-  font-family: Quicksand;
+  font-family: "Inconsolata";
   font-size: 1.2em;
   margin: 10px;
 }
