@@ -79,7 +79,7 @@ body {
 
 /**lightning bolts**/
 
-/* .bolt {
+.bolt {
   width: 0px;
   height: 0px;
   border: 15px solid transparent;
@@ -126,7 +126,7 @@ body {
   border: 11px solid transparent;
   border-top: 55px solid #323335;
   margin-top: 40px;
-} */
+}
 
 @keyframes white {
   to {
