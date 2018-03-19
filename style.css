@@ -34,6 +34,7 @@ body {
   flex-grow: 1;
   display: flex;
   align-items: center; /* Align hero in center of this container */
+
 }
 
 #hero {
@@ -324,7 +325,8 @@ body {
 .content h2 {
   font-family: "Inconsolata";
   font-size: 4em;
-  color: #e40011;
+  color: #FB7272;
+  /* color: #e40011; */
 }
 
 @media (max-width: 45rem) {
