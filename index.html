@@ -98,27 +98,77 @@
       document.querySelector('.main-nav').classList.remove('main-nav--visible');
     }
   </script>
+	<script type="text/javascript">
+		function make_flips() {
+			var bg = document.getElementById("header-background");
+			var width=Math.floor(bg.clientWidth/50);
+			console.log(bg.clientWidth);
+			console.log(bg.clientHeight);
+			var height=Math.floor(bg.clientHeight/50)-1;
+			console.log(width);
+			console.log(height);
+			for(var j=0; j<height; j++) {
+				for(var i=0; i<width; i++) {
+					var div=document.createElement("div");
+					div.className="flip-block";
+					div.id="flip-block"+i+"_"+j;
+					bg.appendChild(div);
+				}
+			}
+			var img = document.getElementById("logo");
+			splash(Math.round((logo.offsetLeft+logo.offsetWidth/2)/50),Math.round((logo.offsetTop+logo.offsetHeight/2)/50),Math.round((logo.offsetLeft+logo.offsetWidth/2)/50),Math.round((logo.offsetTop+logo.offsetHeight/2)/50));
+			//splash2(Math.round((logo.offsetLeft+logo.offsetWidth/2)/50),Math.round((logo.offsetTop+logo.offsetHeight/2)/50),1, width, height);
+		}
+		
+		function splash(x,y,from_x,from_y) {
+			var div = document.getElementById("flip-block"+x+"_"+y);
+			div.style.animationName="flip"; 
+			div.style.animationDuration="0.5s";
+			if(x<from_x && y==from_y) setTimeout(function(){splash(x-1, y, x, y);}, 50);
+			if(x>from_x && y==from_y) setTimeout(function(){splash(x+1, y, x, y);}, 50);
+			if(x==from_x && y<from_y) setTimeout(function(){splash(x, y-1, x, y);}, 50);
+			if(x==from_x && y>from_y) setTimeout(function(){splash(x, y+1, x, y);}, 50);
+			//if(x>from_x && y>from_y) setTimeout(function(){splash(x+1, y+1, x, y);}, 50);
+			//if(x<from_x && y<from_y) setTimeout(function(){splash(x-1, y-1, x, y);}, 50);
+			//if(x<from_x && y>from_y) setTimeout(function(){splash(x-1, y+1, x, y);}, 50);
+			//if(x>from_x && y<from_y) setTimeout(function(){splash(x+1, y-1, x, y);}, 50);
+			if(x==from_x && y==from_y) setTimeout(function(){
+				splash(x-1, y, x, y);
+				splash(x, y-1, x, y);
+				//splash(x-1, y-1, x, y);
+				splash(x+1, y, x, y);
+				splash(x, y+1, x, y);
+				//splash(x+1, y+1, x, y);
+				//splash(x-1, y+1, x, y);
+				//splash(x+1, y-1, x, y);
+				}, 50);
+		}
+		function splash2(x,y,r,w,h) {
+			for(var i=0; i<w; i++) {
+				for(var j=0; j<h; j++) {
+					if(((x-i)**2+(y-j)**2)**0.5<r) {
+						var div = document.getElementById("flip-block"+i+"_"+j);
+						div.style.animationName="flip"; 
+						div.style.animationDuration="0.25s";
+					}
+				}
+			}
+			setTimeout(function(){splash2(x,y,r+1,w,h);}, 10);
+		}
+	</script>
 </head>
 
-<body id="top" onload="setTimeout(function() {animateHeading('rgba(200,200,200,0.8)', 'rgba(180,176,176,0.4)', 500);}, 1000);"
+<body id="top" onload="setTimeout(function() {animateHeading('rgba(200,200,200,0.8)', 'rgba(180,176,176,0.4)', 500);}, 1000); make_flips();"
   onscroll="stickNavigation(); animateProfilePics(500);">
 
   <!-- Main container for the entire header that defines the full height -->
-  <div class="header-container">
+  <div class="header-container" onclick="console.log(event.clientX); console.log(event.clientY);">
+	  <div id="header-background"></div>
 
     <!-- Hero container (1st element in .header-container flex)-->
     <div class="hero-container">
-      <div class="bolt one">
-        <div class="other"></div>
-      </div>
-      <div class="bolt two">
-        <div class="other"></div>
-      </div>
-      <div class="bolt three">
-        <div class="other"></div>
-      </div>
       <div id="hero">
-        <img src="images/vassarhacks1.svg" />
+        <img id="logo" src="images/vassarhacks1.svg" />
         <p>Hacking the Brain</p>
         <p id="date">February 16, 2019 - February 17, 2019</p>
       </div>
