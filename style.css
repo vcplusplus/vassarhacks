@@ -383,28 +383,32 @@ body {
 /** Blurbs **/
 
 #about .profile_pic_container {
-  width: 17%;
+  width: 10%;
   margin: 2%;
+  vertical-align: top;
   display: inline-block;
   text-align: center;
 }
 
 #about #profile_pic_container_focused {
-  width: 20%;
+  width: 12%;
   margin: 2%;
   display: inline-block;
   text-align: center;
 }
 
 #about .profile_pic_container p {
-  font-size: 1.5vw;
+  font-size: 1em;
   margin: 0;
   margin-top: 10px;
+}
+
+#about #profile_pic_container_focused {
   font-weight: bold;
 }
 
 #about .profile_pic_container .job_descr {
-  font-size: 1.25vw;
+  font-size: 0.9em;
   font-weight: normal;
 }
 
